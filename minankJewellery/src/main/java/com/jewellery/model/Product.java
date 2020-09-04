@@ -46,6 +46,11 @@ public class Product implements Serializable {
 	@JoinColumn(name = "PRODUCT_TYPE_ID_FK")
 	private ProductType productType;
 
+	@ManyToOne
+	@JoinColumn(name = "PRODUCT_SUb_TYPE_ID_FK")
+	private ProductSubType productSubType;
+
+	
 	@ManyToMany
 	private List<ProductMultiImages> productMultiImages;
 
@@ -121,4 +126,13 @@ public class Product implements Serializable {
 		this.isActive = isActive;
 	}
 
+	public ProductSubType getProductSubType() {
+		return productSubType;
+	}
+
+	public void setProductSubType(ProductSubType productSubType) {
+		this.productSubType = productSubType;
+	}
+
+	
 }
