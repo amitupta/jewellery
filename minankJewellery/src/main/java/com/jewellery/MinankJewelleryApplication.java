@@ -14,20 +14,14 @@ public class MinankJewelleryApplication {
 		SpringApplication.run(MinankJewelleryApplication.class, args);
 	}
 
-	@Bean  
-	public CorsFilter corsFilter() {
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowCredentials(true);
-		config.addAllowedOrigin("*");
-		config.addAllowedHeader("*");
-		config.addAllowedMethod("OPTION");
-		config.addAllowedMethod("GET");
-		config.addAllowedMethod("PUT");
-		config.addAllowedMethod("POST");
-		config.addAllowedMethod("DELETE");
-		source.registerCorsConfiguration("/*", config);
-		return new CorsFilter(source);
-	}
-
+	/*
+	 * @Bean public CorsFilter corsFilter() { UrlBasedCorsConfigurationSource source
+	 * = new UrlBasedCorsConfigurationSource(); CorsConfiguration config = new
+	 * CorsConfiguration(); config.setAllowCredentials(true);
+	 * config.addAllowedOrigin("*"); config.addAllowedHeader("*");
+	 * config.addAllowedMethod("OPTION"); config.addAllowedMethod("GET");
+	 * config.addAllowedMethod("PUT"); config.addAllowedMethod("POST");
+	 * config.addAllowedMethod("DELETE"); source.registerCorsConfiguration("/*",
+	 * config); return new CorsFilter(source); }
+	 */
 }

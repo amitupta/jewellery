@@ -16,6 +16,7 @@ import com.jewellery.repository.ProductMultiImagesRepository;
 import com.jewellery.repository.ProductRepository;
 import com.jewellery.service.ProductMultiImagesService;
 import com.jewellery.service.ProductService;
+import com.jewellery.utils.IConstant;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -44,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 					ProductMultiImages productMultiImages = multiImagesService.uploadImageDetail(files[i],
 							oldProductMultiImages);
 					if (null != productMultiImages) {
-						multiImages.add(productMultiImages); 
+						multiImages.add(productMultiImages);
 					}
 				}
 				oldProduct.setProductMultiImages(multiImages);
@@ -60,6 +61,19 @@ public class ProductServiceImpl implements ProductService {
 			updateProductDetails = null;
 		}
 		return updateProductDetails;
+	}
+
+	@Override
+	public List<Product> getAllActiveProduct() {
+		List<Product> products = null;
+		try {
+			products = productRepository.findByIsActive(IConstant.ZERO);
+
+		} catch (Exception e) {
+			logger.error("getAllActiveProduct in ProductServiceImpl--", e);
+			products = null;
+		}
+		return products;
 	}
 
 }

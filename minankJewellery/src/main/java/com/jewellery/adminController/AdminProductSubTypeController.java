@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,5 +40,21 @@ public class AdminProductSubTypeController {
 		
 	}
 	
+	@GetMapping(ConstantAction.GET_ALL_ACTIVE_SUB_PRODUCT_TYPE)
+	public Map<Object,Object> getAllActiveSubProductType()
+	{
+		Map<Object, Object> map = new HashMap<>();
+		List<ProductSubType> productSubTypes = productSubTypeService.getAllActiveSubProductType();
+		if (null != productSubTypes) {
+			map.put(IConstant.RESPONSE, IConstant.RESPONSE_SUCCESS_CODE);
+			map.put(IConstant.OBJECT, productSubTypes);
+		} else {
+			map.put(IConstant.RESPONSE, IConstant.RESPONSE_NO_DATA_CODE);
+			map.put(IConstant.MESSAGE, IConstant.DATA_NOT_FOUND);
+		}
+		return map;
+		
+	}
+
 
 }

@@ -17,5 +17,11 @@ public class ConstantAction {
 	public static final String SAVE_PRODUCT_DETAILS = "/saveProductDetail";
 	
 	
+	public static final String GET_ALL_ACTIVE_PRODUCT_TYPE = "/getAllActiveProductType";
+	
+	public static final String GET_ALL_ACTIVE_SUB_PRODUCT_TYPE = "/getAllActiveSubProductType";
+	
+	public static final String GET_ALL_ACTIVE_PRODUCT = "/getAllActiveProduct";
+	
 
 }

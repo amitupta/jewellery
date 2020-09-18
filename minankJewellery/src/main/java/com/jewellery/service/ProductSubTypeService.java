@@ -8,4 +8,6 @@ public interface ProductSubTypeService {
 
 	List<ProductSubType> saveProductSubTypeDetail(List<ProductSubType> productSubType);
 
+	List<ProductSubType> getAllActiveSubProductType();
+
 }

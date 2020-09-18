@@ -1,9 +1,11 @@
 package com.jewellery.adminController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,5 +39,21 @@ public class AdminProductTypeController {
 		
 	}
 	
+	
+	@GetMapping(ConstantAction.GET_ALL_ACTIVE_PRODUCT_TYPE)
+	public Map<Object,Object> getAllActiveProductType()
+	{
+		Map<Object, Object> map = new HashMap<>();
+		List<ProductType> productTypes = productTypeService.getAllActiveProductType();
+		if (null != productTypes) {
+			map.put(IConstant.RESPONSE, IConstant.RESPONSE_SUCCESS_CODE);
+			map.put(IConstant.OBJECT, productTypes);
+		} else {
+			map.put(IConstant.RESPONSE, IConstant.RESPONSE_NO_DATA_CODE);
+			map.put(IConstant.MESSAGE, IConstant.DATA_NOT_FOUND);
+		}
+		return map;
+		
+	}
 
 }
